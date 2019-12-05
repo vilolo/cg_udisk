@@ -30,7 +30,7 @@ class Index extends Controller
         if (!isset($_POST['color']))
             return $this->buildReturn(0, '颜色为必选');
 
-        $_POST['create_time'] = time();
+        $_POST['create_time'] = date('Y-m-d H:i:s');
         Db::table('order')->insert($_POST);
         return $this->buildReturn(1, '提交成功！');
     }
