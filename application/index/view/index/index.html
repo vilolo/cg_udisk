@@ -1,33 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
 
-<label>收货地址：<input type="text" class="address"></label><br>
-<label>收货姓名：<input type="text" class="shipping_name"></label><br>
-<label>收货手机：<input type="text" class="phone"></label><br>
-<label>学校名字：<input type="text" class="school_name"></label><br>
-<label>真实姓名：<input type="text" class="real_name"></label><br>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-背面刻字：
-<label><input type="radio" value="1" name="font_type[]">生肖+名字</label>
-<label><input type="radio" value="2" name="font_type[]">星座+名字</label>
-<br>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px;">
+    <div class="row">
+        <div class="col-xs-7">
+            <img class="img-responsive" src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=3483030207,3924941481&fm=202&mola=new&crop=v1">
+        </div>
+        <div class="col-xs-5">
+            <span>哇哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或</span>
+            <br><br>
+            <span>$$$$</span>
+        </div>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="address">收货地址</label>
+            <input type="text" class="address form-control" id="address" placeholder="收货地址">
+        </div>
+        <div class="form-group">
+            <label for="shipping_name">收货姓名</label>
+            <input type="text" class="shipping_name form-control" id="shipping_name" placeholder="收货姓名">
+        </div>
+        <div class="form-group">
+            <label for="phone">手机号码</label>
+            <input type="text" class="phone form-control" id="phone" placeholder="手机号码">
+        </div>
+        <div class="form-group">
+            <label for="school_name">学校名字</label>
+            <input type="text" class="school_name form-control" id="school_name" placeholder="学校名字">
+        </div>
+        <div class="form-group">
+            <label for="real_name">真实姓名</label>
+            <input type="text" class="real_name form-control" id="real_name" placeholder="真实姓名">
+        </div>
+
+        <div class="radio">
+            背面刻字：
+            <label><input class="" type="radio" value="1" name="font_type[]">生肖+名字</label>
+            <label><input class="" type="radio" value="2" name="font_type[]">星座+名字</label>
+        </div>
+
+        <div class="radio">
+            U盘样式：
+            <label><input class="" type="radio" value="1" name="u_type[]">金属经典款</label>
+            <label><input class="" type="radio" value="2" name="u_type[]">虎扣U盘</label>
+            <label><input class="" type="radio" value="3" name="u_type[]">小精钢</label>
+            <label><input class="" type="radio" value="4" name="u_type[]">钥匙扣U盘</label>
+        </div>
+
+        <img src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=3483030207,3924941481&fm=202&mola=new&crop=v1" class="img-responsive center-block">
+
+        <div class="radio">
+            颜色：
+            <label><input class="" type="radio" value="1" name="color[]">金色</label>
+            <label><input class="" type="radio" value="2" name="color[]">银色</label>
+            <label><input class="" type="radio" value="3" name="color[]">黑色</label>
+            <br>
+        </div>
+
+        <div class="btn btn-info btn-lg btn-block center-block">提交定金</div>
+    </form>
 
 
-U盘样式：
-<label><input type="radio" value="1" name="u_type[]">金属经典款</label>
-<label><input type="radio" value="2" name="u_type[]">虎扣U盘</label>
-<label><input type="radio" value="3" name="u_type[]">小精钢</label>
-<label><input type="radio" value="4" name="u_type[]">钥匙扣U盘</label>
-<br>
 
+</div>
+</body>
 
-颜色：
-<label><input type="radio" value="1" name="color[]">金色</label>
-<label><input type="radio" value="2" name="color[]">银色</label>
-<label><input type="radio" value="3" name="color[]">黑色</label>
-<br><br>
-
-<button class="btn">提交定金</button>
-
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 
     $('.btn').on('click', function () {
@@ -55,9 +112,13 @@ U盘样式：
             url:'/index.php/index/index/saveOrder',
             success:function (data) {
                 alert(data.msg);
-                window.location.reload();
+                if (data.status === 1){
+                    window.location.reload();
+                }
             }
         });
 
     });
 </script>
+
+</html>

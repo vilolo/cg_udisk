@@ -27,7 +27,7 @@
             dataType:'json',
             url:'/index.php/index/index/getOrderNumber',
             success:function (data) {
-                if (data.status = 1){
+                if (data.status === 1){
                     var str = '<table>';
                     for (i in data.data){
                         item = data.data[i];

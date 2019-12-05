@@ -31,8 +31,12 @@ class Index extends Controller
             return $this->buildReturn(0, '颜色为必选');
 
         $_POST['create_time'] = date('Y-m-d H:i:s');
-        Db::table('order')->insert($_POST);
-        return $this->buildReturn(1, '提交成功！');
+        $res = Db::table('order')->insert($_POST);
+        if ($res){
+            return $this->buildReturn(1, '提交成功！');
+        }else{
+            return $this->buildReturn(0, '提交失败！');
+        }
     }
 
     public function orderList()
