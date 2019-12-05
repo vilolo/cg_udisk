@@ -2,16 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>物流查询</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <div>查询条件：</div>
-    收件姓名：<input class="shipping_name"><br>
-    收件号码：<input class="phone"><br>
-    <button class="btn">查询</button>
+<div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px;">
+    <img class="img-responsive" src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=3483030207,3924941481&fm=202&mola=new&crop=v1">
+    <br>
+    <div>
+        哇哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或
+    </div>
+    <hr>
+
+    <form>
+        <div class="form-group">
+            <label for="shipping_name">收件人姓名</label>
+            <input type="text" class="shipping_name form-control" id="shipping_name" placeholder="收件人姓名">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">收件人手机号</label>
+            <input type="text" class="phone form-control" id="phone" placeholder="收件人手机号">
+        </div>
+
+        <div class="btn btn-info btn-lg btn-block center-block">查询</div>
+    </form>
+
     <hr>
     <div>结果：</div>
     <div class="res"></div>
+
+</div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -28,7 +61,7 @@
             url:'/index.php/index/index/getOrderNumber',
             success:function (data) {
                 if (data.status === 1){
-                    var str = '<table>';
+                    var str = '<table class="table"><tr><th>姓名</th><th>手机</th><th>订单号</th></tr>';
                     for (i in data.data){
                         item = data.data[i];
                         str += '<tr>';

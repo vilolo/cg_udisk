@@ -1,6 +1,43 @@
-<table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>订单列表</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>No</th>
+        <th>地址</th>
+        <th>收件名</th>
+        <th>手机号</th>
+        <th>学校名</th>
+        <th>姓名</th>
+        <th>字体类型</th>
+        <th>U盘类型</th>
+        <th>颜色</th>
+        <th>创建时间</th>
+        <th>更新时间</th>
+        <th>订单号</th>
+    </tr>
     <?php foreach($list as $k => $v): ?>
     <tr>
+        <td><?php echo $k+1; ?></td>
         <td><?php echo $v['address']; ?></td>
         <td><?php echo $v['shipping_name']; ?></td>
         <td><?php echo $v['phone']; ?></td>
@@ -9,17 +46,17 @@
         <td><?php echo $v['font_type']; ?></td>
         <td><?php echo $v['u_type']; ?></td>
         <td><?php echo $v['color']; ?></td>
-        <td><?php echo $v['shipping_number']; ?></td>
         <td><?php echo $v['create_time']; ?></td>
-        <?php if(!$v['shipping_number']): ?>
-        <td><input class="shipping_number" oid="<?php echo $v['id']; ?>"></td>
-        <td><button class="btn">保存</button></td>
-        <?php else: ?>
-
-        <?php endif; ?>
+        <td><?php echo $v['update_time']; ?></td>
+        <td>
+            <input class="shipping_number" value="<?php if($v['shipping_number']) echo $v['shipping_number']; ?>" oid="<?php echo $v['id']; ?>">
+            <button class="btn">保存</button>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>
+
+</body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
@@ -38,3 +75,5 @@
         });
     });
 </script>
+
+</html>
