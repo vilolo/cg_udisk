@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 
 return [
-    'hostname'        => 'localhost',
+    'hostname'        => '198.35.45.87',
     'database'        => 'cg',
     'username'        => 'test',
     'password'        => '123!@#QWEasd',
