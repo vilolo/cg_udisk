@@ -1,0 +1,63 @@
+
+<label>收货地址：<input type="text" class="address"></label><br>
+<label>收货姓名：<input type="text" class="shipping_name"></label><br>
+<label>收货手机：<input type="text" class="phone"></label><br>
+<label>学校名字：<input type="text" class="school_name"></label><br>
+<label>真实姓名：<input type="text" class="real_name"></label><br>
+
+<label>
+    背面刻字：
+    <input type="radio" value="1" name="font_type[]">生肖+名字
+    <input type="radio" value="2" name="font_type[]">星座+名字
+</label><br>
+
+<label>
+    U盘样式：
+    <input type="radio" value="1" name="u_type[]">金属经典款
+    <input type="radio" value="2" name="u_type[]">虎扣U盘
+    <input type="radio" value="3" name="u_type[]">小精钢
+    <input type="radio" value="4" name="u_type[]">钥匙扣U盘
+</label><br>
+
+<label>
+    颜色：
+    <input type="radio" value="1" name="color[]">金色
+    <input type="radio" value="2" name="color[]">银色
+    <input type="radio" value="3" name="color[]">黑色
+</label><br><br>
+
+<button class="btn">提交定金</button>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+
+    $('.btn').on('click', function () {
+        address = $('.address').val();
+        shipping_name = $('.shipping_name').val();
+        school_name = $('.school_name').val();
+        real_name = $('.real_name').val();
+        phone = $('.phone').val();
+        font_type = $("input[name='font_type[]']:checked").val();
+        u_type = $("input[name='u_type[]']:checked").val();
+        color = $("input[name='color[]']:checked").val();
+
+        $.ajax({
+            data:{
+                address:address,
+                shipping_name:shipping_name,
+                phone:phone,
+                school_name:school_name,
+                real_name:real_name,
+                font_type:font_type,
+                u_type:u_type,
+                color:color
+            },
+            type:'post',
+            url:'/index.php/index/index/saveOrder',
+            success:function (data) {
+                alert(data.msg);
+            }
+        });
+
+    });
+</script>
