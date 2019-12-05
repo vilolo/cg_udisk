@@ -80,14 +80,19 @@ class Index extends Controller
 
 
         if (!$shipping_name && !$phone){
-            return $this->buildReturn(0, '请输入查询条件');
+            echo json_encode($this->buildReturn(0, '请输入查询条件'), 256 );
+            exit;
         }
 
         $shipping_name ? $query['shipping_name'] = $shipping_name : '';
         $phone ? $query['phone'] = $phone : '';
 
         $list = Db::table('order')->where($query)->select();
-        echo json_encode($this->buildReturn(1, '', $list), 256);
+        if ($list){
+            echo json_encode($this->buildReturn(1, '', $list), 256);
+        }else{
+            echo json_encode($this->buildReturn(0, '没有查询到结果，请确认下单时所填信息是否正确'), 256 );
+        }
     }
 
     public function urlList()
