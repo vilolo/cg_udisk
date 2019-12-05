@@ -30,30 +30,69 @@ class Index extends Controller
         if (!isset($_POST['color']))
             return $this->buildReturn(0, '颜色为必选');
 
+        $_POST['create_time'] = time();
         Db::table('order')->insert($_POST);
         return $this->buildReturn(1, '提交成功！');
     }
 
     public function orderList()
     {
-        $list = Db::table('order')->where(['status' => 1])->find();
+        $list = Db::table('order')->where(['status' => 1])->select();
+
+        $this->assign('list', $list);
         return $this->fetch();
     }
 
     //输入订单号页面
     public function saveOrderNumber()
     {
+        if (!isset($_POST['oid']))
+            return $this->buildReturn(0, '订单不存在');
+        if (!isset($_POST['shipping_number']))
+            return $this->buildReturn(0, '订单号不能为空');
 
+        $id = $_POST['oid'];
+        $shipping_number = $_POST['shipping_number'];
+
+        $res = Db::table('order')->where(['id' => $id])->update(['shipping_number' => $shipping_number]);
+        if ($res){
+            return $this->buildReturn(1, '保存成功！');
+        }
+
+        return $this->buildReturn(0, '保存失败！');
     }
 
     //查询订单号
     public function searchOrderNumber()
     {
-
+        return $this->fetch();
     }
 
-    private function buildReturn($stauus, $msg)
+    public function getOrderNumber()
     {
-        return ['status' => $stauus, 'msg' => $msg];
+        $shipping_name = isset($_POST['shipping_name']) && strlen($_POST['shipping_name'])>0 ? $_POST['shipping_name'] : null;
+        $phone = isset($_POST['phone']) && strlen($_POST['phone'])>0 ? $_POST['phone'] : null;
+
+
+
+        if (!$shipping_name && !$phone){
+            return $this->buildReturn(0, '请输入查询条件');
+        }
+
+        $shipping_name ? $query['shipping_name'] = $shipping_name : '';
+        $phone ? $query['phone'] = $phone : '';
+
+        $list = Db::table('order')->where($query)->select();
+        echo json_encode($this->buildReturn(1, '', $list), 256);
+    }
+
+    public function urlList()
+    {
+        return $this->fetch();
+    }
+
+    private function buildReturn($stauus, $msg, $data = null)
+    {
+        return ['status' => $stauus, 'msg' => $msg, 'data' => $data];
     }
 }

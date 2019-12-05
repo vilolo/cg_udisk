@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>查询条件：</div>
+    收件姓名：<input class="shipping_name"><br>
+    收件号码：<input class="phone"><br>
+    <button class="btn">查询</button>
+    <hr>
+    <div>结果：</div>
+    <div class="res"></div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+
+    $('.btn').on('click', function () {
+        var shipping_name = $('.shipping_name').val();
+        var phone = $('.phone').val();
+
+        $.ajax({
+            data:{shipping_name:shipping_name, phone:phone},
+            type:'post',
+            dataType:'json',
+            url:'/index.php/index/index/getOrderNumber',
+            success:function (data) {
+                if (data.status = 1){
+                    var str = '<table>';
+                    for (i in data.data){
+                        item = data.data[i];
+                        str += '<tr>';
+                        var name = item.shipping_name;
+                        var phone = item.phone;
+                        var shipping_number = item.shipping_number === null ? '暂无物流单号' : item.shipping_number;
+                        str += '<td>'+name+'</td><td>'+phone+'</td><td>'+shipping_number+'</td>';
+                        str += '</tr>';
+                    }
+                    str += '</table>';
+                    $('.res').html(str);
+
+                } else{
+                    alert(data.msg);
+                }
+            }
+        });
+    });
+
+</script>
+</html>

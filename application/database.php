@@ -10,21 +10,23 @@
 // +----------------------------------------------------------------------
 
 return [
+//    'hostname'        => '198.35.45.87',
+//    'database'        => 'cg',
+//    'username'        => 'test',
+//    'password'        => '123!@#QWEasd',
+//    'hostport'        => '',
+
+    'hostname'        => 'localhost',
+    'database'        => 'test',
+    'username'        => 'root',
+    'password'        => 'root',
+    'hostport'        => '',
+
+
+
     // 数据库类型
     'type'            => 'mysql',
-    // 服务器地址
-    //'hostname'        => '198.35.45.87',
-    'hostname'        => 'localhost',
-    // 数据库名
-    'database'        => 'cg',
-    // 用户名
-    //'username'        => 'test',
-    'username'        => 'root',
-    // 密码
-    //'password'        => '123!@#QWEasd',
-    'password'        => 'root',
-    // 端口
-    'hostport'        => '',
+
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数

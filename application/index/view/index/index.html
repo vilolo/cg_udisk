@@ -5,26 +5,25 @@
 <label>学校名字：<input type="text" class="school_name"></label><br>
 <label>真实姓名：<input type="text" class="real_name"></label><br>
 
-<label>
-    背面刻字：
-    <input type="radio" value="1" name="font_type[]">生肖+名字
-    <input type="radio" value="2" name="font_type[]">星座+名字
-</label><br>
+背面刻字：
+<label><input type="radio" value="1" name="font_type[]">生肖+名字</label>
+<label><input type="radio" value="2" name="font_type[]">星座+名字</label>
+<br>
 
-<label>
-    U盘样式：
-    <input type="radio" value="1" name="u_type[]">金属经典款
-    <input type="radio" value="2" name="u_type[]">虎扣U盘
-    <input type="radio" value="3" name="u_type[]">小精钢
-    <input type="radio" value="4" name="u_type[]">钥匙扣U盘
-</label><br>
 
-<label>
-    颜色：
-    <input type="radio" value="1" name="color[]">金色
-    <input type="radio" value="2" name="color[]">银色
-    <input type="radio" value="3" name="color[]">黑色
-</label><br><br>
+U盘样式：
+<label><input type="radio" value="1" name="u_type[]">金属经典款</label>
+<label><input type="radio" value="2" name="u_type[]">虎扣U盘</label>
+<label><input type="radio" value="3" name="u_type[]">小精钢</label>
+<label><input type="radio" value="4" name="u_type[]">钥匙扣U盘</label>
+<br>
+
+
+颜色：
+<label><input type="radio" value="1" name="color[]">金色</label>
+<label><input type="radio" value="2" name="color[]">银色</label>
+<label><input type="radio" value="3" name="color[]">黑色</label>
+<br><br>
 
 <button class="btn">提交定金</button>
 
@@ -56,6 +55,7 @@
             url:'/index.php/index/index/saveOrder',
             success:function (data) {
                 alert(data.msg);
+                window.location.reload();
             }
         });
 

@@ -1,1 +1,40 @@
-asdfasdfadsf
+<table>
+    <?php foreach($list as $k => $v): ?>
+    <tr>
+        <td><?php echo $v['address']; ?></td>
+        <td><?php echo $v['shipping_name']; ?></td>
+        <td><?php echo $v['phone']; ?></td>
+        <td><?php echo $v['school_name']; ?></td>
+        <td><?php echo $v['real_name']; ?></td>
+        <td><?php echo $v['font_type']; ?></td>
+        <td><?php echo $v['u_type']; ?></td>
+        <td><?php echo $v['color']; ?></td>
+        <td><?php echo $v['shipping_number']; ?></td>
+        <td><?php echo $v['create_time']; ?></td>
+        <?php if(!$v['shipping_number']): ?>
+        <td><input class="shipping_number" oid="<?php echo $v['id']; ?>"></td>
+        <td><button class="btn">保存</button></td>
+        <?php else: ?>
+
+        <?php endif; ?>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $('.btn').on('click', function () {
+        var shipping_number = $(this).parent().parent().find('.shipping_number').val();
+        var oid = $(this).parent().parent().find('.shipping_number').attr('oid');
+
+        $.ajax({
+            data:{shipping_number:shipping_number, oid:oid},
+            type:'post',
+            url:'/index.php/index/index/saveOrderNumber',
+            success:function (data) {
+                alert(data.msg);
+                window.location.reload();
+            }
+        });
+    });
+</script>
