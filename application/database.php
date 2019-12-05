@@ -10,17 +10,17 @@
 // +----------------------------------------------------------------------
 
 return [
-//    'hostname'        => '198.35.45.87',
-//    'database'        => 'cg',
-//    'username'        => 'test',
-//    'password'        => '123!@#QWEasd',
-//    'hostport'        => '',
-
     'hostname'        => 'localhost',
-    'database'        => 'test',
-    'username'        => 'root',
-    'password'        => 'root',
+    'database'        => 'cg',
+    'username'        => 'test',
+    'password'        => '123!@#QWEasd',
     'hostport'        => '',
+
+//    'hostname'        => 'localhost',
+//    'database'        => 'test',
+//    'username'        => 'root',
+//    'password'        => 'root',
+//    'hostport'        => '',
 
 
 
