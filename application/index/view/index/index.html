@@ -112,6 +112,13 @@
 </body>
 
 <script>
+    function checkPhone(phone){
+        if(!(/^1[3456789]\d{9}$/.test(phone))){
+            return false;
+        }
+        return true;
+    }
+
     $('.subbtn').on('click', function () {
         address = $('.address').val();
         shipping_name = $('.shipping_name').val();
@@ -121,6 +128,48 @@
         font_type = $("input[name='font_type[]']:checked").val();
         u_type = $("input[name='u_type[]']:checked").val();
         color = $("input[name='color[]']:checked").val();
+
+        if (!address){
+            alert('收货地址不能为空');
+            return;
+        }
+        if (!shipping_name){
+            alert('收货人姓名不能为空');
+            return;
+        }
+
+        if (!phone){
+            alert('手机号不能为空');
+            return;
+        }
+
+        if(!checkPhone(phone)){
+            alert('手机格式不正确');
+            return;
+        }
+
+        if (!school_name){
+            alert('学校名不能为空');
+            return;
+        }
+        if (!real_name){
+            alert('姓名不能为空');
+            return;
+        }
+
+
+        if (!font_type){
+            alert('刻字类型不能为空');
+            return;
+        }
+        if (!u_type){
+            alert('U盘类型不能为空');
+            return;
+        }
+        if (!color){
+            alert('颜色不能为空');
+            return;
+        }
 
         $.ajax({
             data:{
