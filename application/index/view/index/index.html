@@ -112,7 +112,18 @@
             </div>
         </div>
         <div class="radio row">
-            <img src="/images/p1-j.jpg" class="img-responsive center-block" id="u_img">
+            <img src="/images/p1-j.jpg" class="pimg img-responsive center-block p1-j">
+            <img src="/images/p2-j.jpg" style="display: none;" class="pimg img-responsive center-block p2-j">
+            <img src="/images/p3-j.jpg" style="display: none;" class="pimg img-responsive center-block p3-j">
+            <img src="/images/p4-j.jpg" style="display: none;" class="pimg img-responsive center-block p4-j">
+            <img src="/images/p1-y.jpg" style="display: none;" class="pimg img-responsive center-block p1-y">
+            <img src="/images/p2-y.jpg" style="display: none;" class="pimg img-responsive center-block p2-y">
+            <img src="/images/p3-y.jpg" style="display: none;" class="pimg img-responsive center-block p3-y">
+            <img src="/images/p4-y.jpg" style="display: none;" class="pimg img-responsive center-block p4-y">
+            <img src="/images/p1-h.jpg" style="display: none;" class="pimg img-responsive center-block p1-h">
+            <img src="/images/p2-h.jpg" style="display: none;" class="pimg img-responsive center-block p2-h">
+            <img src="/images/p3-h.jpg" style="display: none;" class="pimg img-responsive center-block p3-h">
+            <img src="/images/p4-h.jpg" style="display: none;" class="pimg img-responsive center-block p4-h">
         </div>
         <br>
         <div class="subbtn btn btn-info btn-block center-block">提交订单</div>
@@ -207,12 +218,14 @@
     $('.ubtn').on('change', function () {
         $('.ubtn').removeClass('btn-info');
         $(this).addClass('btn-info');
-
-        $('#u_img').attr('src', '/images/'+$(this).attr('tt')+'-'+$('input[name="color[]"]:checked').attr('cc')+'.jpg');
+        $('.pimg').hide();
+        $('.'+$(this).attr('tt')+'-'+$('input[name="color[]"]:checked').attr('cc')).show();
+        //$('#u_img').attr('src', '/images/'+$(this).attr('tt')+'-'+$('input[name="color[]"]:checked').attr('cc')+'.jpg');
     });
 
     $('.ccc').on('change', function () {
-        $('#u_img').attr('src', '/images/'+$('.ubtn.btn-info').attr('tt')+'-'+$(this).attr('cc')+'.jpg');
+        $('.pimg').hide();
+        $('.'+$('.ubtn.btn-info').attr('tt')+'-'+$(this).attr('cc')).show();
     });
     
     $('.font_type').on('change', function () {
