@@ -20,6 +20,7 @@
         .input_line {
             BORDER-TOP-STYLE: none;BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE:solid; -webkit-box-shadow:none;
         }
+        div{font-size: 12px;}
     </style>
 
 </head>
@@ -31,32 +32,32 @@
             <img class="img-responsive" src="/images/cover.jpg">
         </div>
         <div class="col-xs-5">
-            <span class="lead" style="font-weight: bold">哇哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或</span>
+            <span>哇哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或</span>
             <br><br>
-            <span style="color: red; font-size: 16px;"><strong>￥1</strong> </span> <del>$158</del>
+            <span style="color: red;"><strong>￥1</strong> </span> <del>$158</del>
         </div>
     </div>
 
     <form>
         <div class="form-group">
             <!--<label for="address">收货地址</label>-->
-            <input type="text" class="input_line input-lg address form-control" id="address" placeholder="收货地址">
+            <input type="text" class="input_line input-sm address form-control" id="address" placeholder="收货地址">
         </div>
         <div class="form-group">
             <!--<label for="shipping_name">收货姓名</label>-->
-            <input type="text" class="input_line input-lg shipping_name form-control" id="shipping_name" placeholder="收货姓名">
+            <input type="text" class="input_line input-sm shipping_name form-control" id="shipping_name" placeholder="收货姓名">
         </div>
         <div class="form-group">
             <!--<label for="phone">手机号码</label>-->
-            <input type="text" class="input_line input-lg phone form-control" id="phone" placeholder="手机号码">
+            <input type="text" class="input_line input-sm phone form-control" id="phone" placeholder="手机号码">
         </div>
         <div class="form-group">
             <!--<label for="school_name">学校名字</label>-->
-            <input type="text" class="input_line input-lg school_name form-control" id="school_name" placeholder="学校名字">
+            <input type="text" class="input_line input-sm school_name form-control" id="school_name" placeholder="学校名字">
         </div>
         <div class="form-group">
             <!--<label for="real_name">真实姓名</label>-->
-            <input type="text" class="input_line input-lg real_name form-control" id="real_name" placeholder="真实姓名">
+            <input type="text" class="input_line input-sm real_name form-control" id="real_name" placeholder="真实姓名">
         </div>
 
         <div class="radio row">
@@ -64,36 +65,43 @@
                 背面刻字：
             </div>
             <div class="col-xs-8">
-                <label><input class="" type="radio" checked="checked" value="1" name="font_type[]">生肖+名字</label>
-                <br><br>
-                <label><input class="" type="radio" value="2" name="font_type[]">星座+名字</label>
+                <label><input class="font_type" type="radio" checked="checked" value="1" tn="生肖" name="font_type[]">生肖+名字</label>
+                <label><input class="font_type" type="radio" value="2" tn="星座" name="font_type[]">星座+名字</label>
+                <select class="input_line input-sm real_name form-control" id="font_text">
+                    <option value="鼠">鼠</option>
+                    <option value="牛">牛</option>
+                    <option value="虎">虎</option>
+                    <option value="兔">兔</option>
+                    <option value="龙">龙</option>
+                    <option value="蛇">蛇</option>
+                    <option value="马">马</option>
+                    <option value="羊">羊</option>
+                    <option value="猴">猴</option>
+                    <option value="鸡">鸡</option>
+                    <option value="狗">狗</option>
+                    <option value="猪">猪</option>
+                </select>
+                <!--<input type="text" class="input_line input-sm real_name form-control" id="font_text"  placeholder="生肖">-->
             </div>
         </div>
-        <br>
         <div class="radio row">
             <div class="col-xs-3" style="padding-right: 0;">
                 U盘样式：
             </div>
             <div class="col-xs-8">
-                <label class="ubtn btn btn-info active btn-sm" style="padding-left: 10px;">
+                <label class="ubtn btn btn-info active btn-sm" img_url="/images/p1.jpg" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;" type="radio" checked="checked" value="1" name="u_type[]">金属经典款</label>
-                <label class="ubtn btn active btn-sm"  style="padding-left: 10px;">
+                <label class="ubtn btn active btn-sm" img_url="/images/p2.jpg" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;"  type="radio" value="2" name="u_type[]">虎扣U盘</label>
-                <label class="ubtn btn active btn-sm"  style="padding-left: 10px;">
+                <label class="ubtn btn active btn-sm"  img_url="/images/p3.jpg" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;" type="radio" value="3" name="u_type[]">小精钢</label>
-                <label class="ubtn btn active btn-sm"  style="padding-left: 10px;">
+                <label class="ubtn btn active btn-sm" img_url="/images/p4.jpg" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;" type="radio" value="4" name="u_type[]">钥匙扣U盘</label>
             </div>
         </div>
         <div class="radio row">
-            <div class="col-xs-6">
-                <img src="/images/u1.jpg" class="img-responsive center-block">
-            </div>
-            <div class="col-xs-6">
-                <img src="/images/u2.jpg" class="img-responsive center-block">
-            </div>
+            <img src="/images/p1.jpg" class="img-responsive center-block" id="u_img">
         </div>
-        <br>
         <div class="radio row">
             <div class="col-xs-3" style="padding-right: 0;">
                 颜色：
@@ -106,7 +114,7 @@
             </div>
         </div>
         <br>
-        <div class="subbtn btn btn-info btn-lg btn-block center-block">提交定金</div>
+        <div class="subbtn btn btn-info btn-block center-block">提交订单</div>
     </form>
     <br>
 </div>
@@ -129,6 +137,7 @@
         font_type = $("input[name='font_type[]']:checked").val();
         u_type = $("input[name='u_type[]']:checked").val();
         color = $("input[name='color[]']:checked").val();
+        font_text = $('#font_text').val();
 
         if (!address){
             alert('收货地址不能为空');
@@ -158,9 +167,8 @@
             return;
         }
 
-
-        if (!font_type){
-            alert('刻字类型不能为空');
+        if (!font_text){
+            alert('背面刻字不能为空');
             return;
         }
         if (!u_type){
@@ -180,6 +188,7 @@
                 school_name:school_name,
                 real_name:real_name,
                 font_type:font_type,
+                font_text:font_text,
                 u_type:u_type,
                 color:color
             },
@@ -194,10 +203,44 @@
         });
     });
 
-    $('.ubtn').on('click', function () {
-        if (!$(this).hasClass('btn-info')){
-            $('.ubtn').removeClass('btn-info');
-            $(this).addClass('btn-info');
+    $('.ubtn').on('change', function () {
+        $('.ubtn').removeClass('btn-info');
+        $(this).addClass('btn-info');
+
+        $('#u_img').attr('src', $(this).attr('img_url'));
+    });
+    
+    $('.font_type').on('change', function () {
+        var sx = '<option value="鼠">鼠</option>'+
+                '<option value="牛">牛</option>'+
+                '<option value="虎">虎</option>'+
+                '<option value="兔">兔</option>'+
+                '<option value="龙">龙</option>'+
+                '<option value="蛇">蛇</option>'+
+                '<option value="马">马</option>'+
+                '<option value="羊">羊</option>'+
+                '<option value="猴">猴</option>'+
+                '<option value="鸡">鸡</option>'+
+                '<option value="狗">狗</option>'+
+                '<option value="猪">猪</option>';
+
+        var xz = '<option value="白羊座">白羊座</option>'+
+                    '<option value="金牛座">金牛座</option>'+
+                    '<option value="双子座">双子座</option>'+
+                    '<option value="巨蟹座">巨蟹座</option>'+
+                    '<option value="狮子座">狮子座</option>'+
+                    '<option value="处女座">处女座</option>'+
+                    '<option value="天秤座">天秤座</option>'+
+                    '<option value="天蝎座">天蝎座</option>'+
+                    '<option value="射手座">射手座</option>'+
+                    '<option value="摩羯座">摩羯座</option>'+
+                    '<option value="水瓶座">水瓶座</option>'+
+                    '<option value="双鱼座">双鱼座</option>';
+
+        if ($(this).attr('tn') === '生肖'){
+            $('#font_text').html(sx);
+        }else{
+            $('#font_text').html(xz);
         }
     });
 </script>
