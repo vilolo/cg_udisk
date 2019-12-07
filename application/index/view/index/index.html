@@ -89,29 +89,30 @@
                 U盘样式：
             </div>
             <div class="col-xs-8">
-                <label class="ubtn btn btn-info active btn-sm" img_url="/images/p1.jpg" style="padding-left: 10px;">
+                <label class="ubtn btn btn-info active btn-sm" tt="p1" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;" type="radio" checked="checked" value="1" name="u_type[]">金属经典款</label>
-                <label class="ubtn btn active btn-sm" img_url="/images/p2.jpg" style="padding-left: 10px;">
+                <label class="ubtn btn active btn-sm" tt="p2" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;"  type="radio" value="2" name="u_type[]">虎扣U盘</label>
-                <label class="ubtn btn active btn-sm"  img_url="/images/p3.jpg" style="padding-left: 10px;">
+                <label class="ubtn btn active btn-sm"  tt="p3" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;" type="radio" value="3" name="u_type[]">小精钢</label>
-                <label class="ubtn btn active btn-sm" img_url="/images/p4.jpg" style="padding-left: 10px;">
+                <label class="ubtn btn active btn-sm" tt="p4" style="padding-left: 10px;">
                     <input class="text-muted" style="display:none;" type="radio" value="4" name="u_type[]">钥匙扣U盘</label>
             </div>
         </div>
-        <div class="radio row">
-            <img src="/images/p1.jpg" class="img-responsive center-block" id="u_img">
-        </div>
+
         <div class="radio row">
             <div class="col-xs-3" style="padding-right: 0;">
                 颜色：
             </div>
             <div class="col-xs-8">
-                <label><input class="" type="radio" checked="checked" value="1" name="color[]">金色</label>
-                <label><input class="" type="radio" value="2" name="color[]">银色</label>
-                <label><input class="" type="radio" value="3" name="color[]">黑色</label>
+                <label><input class="ccc" type="radio" cc="j" checked="checked" value="1" name="color[]">金色</label>
+                <label><input class="ccc" type="radio" cc="y" value="2" name="color[]">银色</label>
+                <label><input class="ccc" type="radio" cc="h" value="3" name="color[]">黑色</label>
                 <br>
             </div>
+        </div>
+        <div class="radio row">
+            <img src="/images/p1-j.jpg" class="img-responsive center-block" id="u_img">
         </div>
         <br>
         <div class="subbtn btn btn-info btn-block center-block">提交订单</div>
@@ -207,7 +208,11 @@
         $('.ubtn').removeClass('btn-info');
         $(this).addClass('btn-info');
 
-        $('#u_img').attr('src', $(this).attr('img_url'));
+        $('#u_img').attr('src', '/images/'+$(this).attr('tt')+'-'+$('input[name="color[]"]:checked').attr('cc')+'.jpg');
+    });
+
+    $('.ccc').on('change', function () {
+        $('#u_img').attr('src', '/images/'+$('.ubtn.btn-info').attr('tt')+'-'+$(this).attr('cc')+'.jpg');
     });
     
     $('.font_type').on('change', function () {
