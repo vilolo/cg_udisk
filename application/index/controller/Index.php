@@ -15,19 +15,19 @@ class Index extends Controller
     //表单保存接口
     public function saveOrder()
     {
-        if (!isset($_POST['address']))
+        if (!isset($_POST['address']) || !$_POST['address'])
             return $this->buildReturn(0, '收货地址不能为空');
-        if (!isset($_POST['shipping_name']))
+        if (!isset($_POST['shipping_name']) || !$_POST['shipping_name'])
             return $this->buildReturn(0, '收货名不能为空');
-        if (!isset($_POST['school_name']))
+        if (!isset($_POST['school_name']) || !$_POST['school_name'])
             return $this->buildReturn(0, '学校名字不能为空');
-        if (!isset($_POST['real_name']))
+        if (!isset($_POST['real_name']) || !$_POST['real_name'])
             return $this->buildReturn(0, '姓名不能为空');
-        if (!isset($_POST['font_type']))
+        if (!isset($_POST['font_type']) || !$_POST['font_type'])
             return $this->buildReturn(0, '刻字类型为必选');
-        if (!isset($_POST['u_type']))
+        if (!isset($_POST['u_type']) || !$_POST['u_type'])
             return $this->buildReturn(0, 'U盘样式为必选');
-        if (!isset($_POST['color']))
+        if (!isset($_POST['color']) || !$_POST['color'])
             return $this->buildReturn(0, '颜色为必选');
 
         $_POST['create_time'] = date('Y-m-d H:i:s');
@@ -42,6 +42,44 @@ class Index extends Controller
     public function orderList()
     {
         $list = Db::table('order')->where(['status' => 1])->select();
+
+        foreach ($list as $k => $v){
+            switch ($v['font_type']){
+                case '1':
+                    $list[$k]['font_type'] = '生肖+名字';
+                    break;
+                case '2':
+                    $list[$k]['font_type'] = '星座+名字';
+                    break;
+            }
+
+            switch ($v['u_type']){
+                case '1':
+                    $list[$k]['u_type'] = '金属经典款';
+                    break;
+                case '2':
+                    $list[$k]['u_type'] = '虎扣U盘';
+                    break;
+                case '3':
+                    $list[$k]['u_type'] = '小精钢';
+                    break;
+                case '4':
+                    $list[$k]['u_type'] = '钥匙扣U盘';
+                    break;
+            }
+
+            switch ($v['color']){
+                case '1':
+                    $list[$k]['color'] = '金色';
+                    break;
+                case '2':
+                    $list[$k]['color'] = '银色';
+                    break;
+                case '3':
+                    $list[$k]['color'] = '黑色';
+                    break;
+            }
+        }
 
         $this->assign('list', $list);
         return $this->fetch();
